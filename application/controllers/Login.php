@@ -5,16 +5,16 @@ class Login extends CI_Controller {
 
     public function index()
 	{
-		$this->load->view('page/login');
+		$this->load->view('pages/header');
 	}	
 
 	public function login()
 	{
-		$mail = $this->input->post("email");
-		$pass = $this->input->post("mdp");
+		$email = $this->input->post("email");
+		$mdp = $this->input->post("mdp");
 
 		$this->load->model('Model');
-		if($this->Model->checkLogin($mail,$pass))
+		if($this->Model->checkLogin($email,$mdp))
 		{
 			if($this->session->userdata('typeUser') == 0){
 				redirect('accueil/admin');

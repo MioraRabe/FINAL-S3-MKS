@@ -8,6 +8,8 @@ create table Users (
     mdp VARCHAR(20),
     typeUser INT NOT NULL 
 );
+-- 0 admin
+-- 1 user
 
 create table Categorie (
     idCat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -51,3 +53,5 @@ create table Transac (
     typeTransac INT NOT,
     Foreign Key (idProp) REFERENCES Proposition(idProp)
 );
+-- typetransac 0 refusé
+-- 1 accepté

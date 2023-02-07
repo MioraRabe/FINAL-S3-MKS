@@ -17,10 +17,14 @@ class Login extends CI_Controller {
 		$this->load->model('Model');
 		if($this->Model->checkLogin($mail,$pass))
 		{
+			if($this->session->userdata('typeUser') == 0){
+				redirect('admin/index');
+			}else{
+				redirect('client/index');
+			}
 			// $this->session->set_userdata('mail', $mail);
-			redirect('product/index');
 		}else{
-			redirect('welcome/index');
+			redirect('login/index');
 		}
 	}
 }

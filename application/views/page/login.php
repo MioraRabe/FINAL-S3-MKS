@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="login/login" method="post">
+    <form action="<?php echo base_url('login/login');?>" method="post">
         <input type="email" name="email" id="">
         <input type="password" name="mdp" id="">
     </form>

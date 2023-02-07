@@ -5,7 +5,6 @@ class Login extends CI_Controller {
 
     public function index()
 	{
-		
 		$this->load->view('page/login');
 	}	
 
@@ -18,13 +17,14 @@ class Login extends CI_Controller {
 		if($this->Model->checkLogin($mail,$pass))
 		{
 			if($this->session->userdata('typeUser') == 0){
-				redirect('admin/index');
+				redirect('accueil/admin');
 			}else{
-				redirect('client/index');
+				redirect('accueil/client');
 			}
-			// $this->session->set_userdata('mail', $mail);
 		}else{
 			redirect('login/index');
 		}
 	}
+
+	
 }

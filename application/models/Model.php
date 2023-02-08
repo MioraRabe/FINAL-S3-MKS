@@ -97,5 +97,13 @@
             $this->db->query($sql, array($idUser,$idObjet));
         }
 
+
+        public function listPropEnCours($idUser){
+            $sql="select * from proposition where idUser2 = ? and idprop not in (select idprop from transac) ";
+            $query = $this->db->query($sql, array($idUser));
+            $result = $query->result_array(); 
+            return $result;
+        }
+
     }
 ?>

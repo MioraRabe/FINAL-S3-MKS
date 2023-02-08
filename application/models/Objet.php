@@ -38,6 +38,14 @@
 
             return $result;
         }
+        public function getlistobj($listIdObj){
+            $str=implode(",", $listIdObj);
+
+            $sql = "SELECT * FROM objetprop WHERE idObjet in (".$str.")";
+            $query = $this->db->query($sql);
+            $result = $query->result_array(); 
+            return $result;
+        }
 
         public function selectAllCat()
         {

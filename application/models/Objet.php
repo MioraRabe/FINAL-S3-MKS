@@ -30,6 +30,15 @@
             return $result;
         }
 
+        public function getAllObjets()
+        {
+            $sql = "SELECT * FROM objetprop";
+            $query = $this->db->query($sql);
+            $result = $query->result_array(); 
+
+            return $result;
+        }
+
         public function selectAllCat()
         {
             $sql = "SELECT nom FROM categorie";

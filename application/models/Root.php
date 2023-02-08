@@ -3,8 +3,11 @@
 
     class Root extends CI_Model 
     {
+        public function __construct() {
+            parent::__construct();
+        }
         public function countUser(){
-            $sql = "SELECT count(*) FROM users ";
+            $sql = "SELECT count(*) as nbUser FROM users ";
             $query = $this->db->query($sql);
             $row = $query->row_array();
 

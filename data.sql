@@ -19,17 +19,17 @@ insert into Objet values(null, 'jupe carreaux', 'Jupe plissée courte Taille Hau
 insert into Objet values(null, 'Vingt mille lieue sous la mer', 'Roman d aventure, anticipation fantastique', 2, 20000, 'Livre/3.png');
 insert into Objet values(null, 'Souris', 'KLIM Souris Gamer Haute Précision', 3, 40000, 'Informatique/3.png');
 
-insert into Proprio values(1, 1, 2022-10-12);
-insert into Proprio values(1, 2, 2023-01-01);
-insert into Proprio values(2, 3, 2022-05-02);
-insert into Proprio values(2, 4, 2023-02-01);
-insert into Proprio values(3, 5, 2022-11-13);
-insert into Proprio values(3, 6, 2022-10-03);
-insert into Proprio values(4, 7, 2023-01-12);
-insert into Proprio values(4, 8, 2022-09-02);
+insert into Proprio values(1, 1, '2022-10-12');
+insert into Proprio values(1, 2, '2023-01-01');
+insert into Proprio values(2, 3, '2022-05-02');
+insert into Proprio values(2, 4, '2023-02-01');
+insert into Proprio values(3, 5, '2022-11-13');
+insert into Proprio values(3, 6, '2022-10-03');
+insert into Proprio values(4, 7, '2023-01-12');
+insert into Proprio values(4, 8, '2022-09-02');
 
-insert into Proposition values(null, 2, 3, 3, 5, 2023-01-20);
-insert into Proposition values(null, 4, 8, 1, 1, 2023-01-31);
+insert into Proposition values(null, 2, 3, 3, 5, '2023-01-20');
+insert into Proposition values(null, 4, 8, 1, 1, '2023-01-31');
 
-insert into Transac values(1, 2023-01-21, 0);
-insert into Transac values(2, 2023-02-01, 1);
+insert into Transac values(1, '2023-01-21', 0);
+insert into Transac values(2, '2023-02-01', 1);

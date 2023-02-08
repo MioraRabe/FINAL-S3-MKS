@@ -1,5 +1,5 @@
-CREATE DATABASE takalo;
-USE takalo;
+CREATE DATABASE mks_takalo;
+USE mks_takalo;
 
 create table Users (
     idUser INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -57,7 +57,8 @@ create table Transac (
     typeTransac INT NOT NULL,
     Foreign Key (idProp) REFERENCES Proposition(idProp)
 );
-
+CREATE OR REPLACE view maxProp as (SELECT idObj as obj, MAX(datePossess) as max FROM proprio GROUP BY idObj); 
 create or replace view ObjetProp as (select u.idUser, u.nom as userName, o.*, c.nomCat from proprio p, maxprop m, users u, objet o, categorie c where p.idobj=m.obj and p.datepossess=m.max and u.idUser=p.idUser and o.idObjet=p.idObj and c.idCat=o.idCategorie);
+
 
 create or replace view historiqueTransac as (select t.*, u1.nom as user1, o1.nom as objet1, o1.cover as sary1, u2.nom as user2, o2.nom as objet2, o2.cover as sary2 from transac t, proposition p, users u1, users u2, objet o1, objet o2 where t.idProp=p.idProp and u1.idUser=p.idUser1 and u2.idUser=p.idUser2 and o1.idObjet=p.idObjet1 and o2.idObjet=p.idObjet2);

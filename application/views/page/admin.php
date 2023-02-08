@@ -49,7 +49,7 @@
               <a href="#"><?php echo $obj['nom']?></a>
             </h4>
             <h5>Propriétaire: <?php echo $obj['userName']?></h5>
-            <h5><?php echo $obj['valeur']?></h5>
+            <h5>Ar <?php echo $obj['valeur']?></h5>
             <p class="card-text"><?php echo $obj['descri']?></p>
           </div>
           <div class="card-footer">

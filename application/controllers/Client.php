@@ -21,9 +21,12 @@ class Client extends CI_Controller {
 		$this->load->view('mainpage',$data);
 	}
 	public function fiche(){
+		$idObjet = $this->input->get("idObjet");
+
 		$data['contents'] = 'page/ficheObjet';
-		$data['titre'] = 'Takalo';
-		$data['objects'] =$this->Objet->getOtherObjets($this->session->userdata('idUser'));
+		$data['titre'] = 'Fiche';
+		$data['myobjects'] =$this->Objet->getObjetUser($this->session->userdata('idUser'));
+		$data['objects'] =$this->Objet->findObjet($idObjet);
 		$this->load->view('mainpage',$data);
 	}
 

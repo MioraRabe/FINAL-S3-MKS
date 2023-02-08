@@ -35,12 +35,12 @@
               <a href="#"><?php echo $obj['nom']?></a>
             </h4>
             <h5>Propriétaire: <?php echo $obj['userName']?></h5>
-            <h5><?php echo $obj['valeur']?></h5>
+            <h5>Ar <?php echo $obj['valeur']?></h5>
             <p class="card-text"><?php echo $obj['descri']?></p>
           </div>
           <div class="card-footer">
             <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
-            <p><a href="fiche">Fiche</a></p>
+            <p><a href="fiche?idObjet=<?php echo $obj['idObjet'];?>">Fiche</a></p>
           </div>
         </div>
       </div>

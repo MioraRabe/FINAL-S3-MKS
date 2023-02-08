@@ -11,18 +11,24 @@
                         <p><?php echo $objects['descri']?></p>
                         <p>Ar <?php echo $objects['valeur']?></p>
                         <p><strong>Propriétaire: </strong><?php echo $objects['userName']?></p>
-                        <p>Echanger contre mon:
-<select name="categorie" class="form-select" style="margin-left: 1%;border-radius: 6px;">
+
+                        <form action="proposer" method="post">
+                            <input type="hidden" name="otherObj" value="<?php echo $objects['idObjet'];?>">
+                            <input type="hidden" name="otherId" value="<?php echo $objects['idUser'];?>">
+                            <p>Echanger contre mon:
+<select name="myObj" class="form-select" style="margin-left: 1%;border-radius: 6px;">
 <?php
   foreach($myobjects as $obj){
 ?>
 <option value="<?php echo $obj['idObjet']?>"><?php echo $obj['nom']?></option>
 <?php }?>
-
 </select>
                         </p>
+                        <input class="btn btn-primary" type="submit" value="Echanger">
+                        <!-- <button class="btn btn-primary" type="button">Echanger</button> -->
+                        </form>
+                        
 
-                        <form><button class="btn btn-primary" type="button">Echanger</button></form>
                     </div>
                 </div>
             </div>

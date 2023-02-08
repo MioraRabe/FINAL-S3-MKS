@@ -13,6 +13,24 @@ class Client extends CI_Controller {
 		$data['contents'] = 'page/client';
 		$data['titre'] = 'Takalo';
 		$data['objects'] =$this->Objet->getObjetUser($this->session->userdata('idUser'));
+		// $props=$this->Model->listPropEnCours($this->session->userdata('idUser'));
+
+		// foreach($props as $prop){
+		// 	$otherProp[]=$prop['idObjet1'];
+		// }
+		// foreach($props as $prop){
+		// 	$myObj[]=$prop['idObjet2'];
+		// }
+		// $listPropose=$this->Objet->getlistobj($otherProp);
+		// $mine=$this->Objet->getlistobj($myObj);
+		// // $otherProp=$props[0]['idObjet1'];
+		// var_dump($props);
+		// echo "other prop";
+		// var_dump($otherProp);
+		// echo "other prop detail";
+
+		// var_dump($objetsss);
+		// var_dump($mine);
 		$this->load->view('mainpage',$data);
 	}	
 	public function other(){
@@ -36,7 +54,6 @@ class Client extends CI_Controller {
 		$otherId = $this->input->post("otherId");
 		$this->Model->proposer($this->session->userdata('idUser'),$myObj,$otherId,$otherObj);
 		redirect('other');
-
 	}
 
 

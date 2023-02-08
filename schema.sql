@@ -62,3 +62,5 @@ create or replace view ObjetProp as (select u.idUser, u.nom as userName, o.*, c.
 
 
 create or replace view historiqueTransac as (select t.*, u1.nom as user1, o1.nom as objet1, o1.cover as sary1, u2.nom as user2, o2.nom as objet2, o2.cover as sary2 from transac t, proposition p, users u1, users u2, objet o1, objet o2 where t.idProp=p.idProp and u1.idUser=p.idUser1 and u2.idUser=p.idUser2 and o1.idObjet=p.idObjet1 and o2.idObjet=p.idObjet2);
+
+CREATE OR REPLACE VIEW detailsPropo as (SELECT o.*, p.idUser2, p.idProp FROM proposition as p JOIN objetProp as o ON o.idUser = p.idUser1);

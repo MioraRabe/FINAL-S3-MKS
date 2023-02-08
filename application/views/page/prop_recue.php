@@ -12,18 +12,12 @@
 <div class="row">
 
   <div class="col-lg-3">
-
-    <h1 class="my-4">Liste des proposition reçue</h1>
-    <div class="list-group">
-      <a href="other" class="list-group-item">Liste des objets des autres utilisateurs</a>
-    </div>
-  
     <h1 class="my-4">Liste proposition reçue </h1>
     <?php
     for($i=0;$i<count($otherProp);$i++){
 ?>
     <div class="list-group">
-      <a href="other" class="list-group-item"><?php echo $otherProp[$i]?> <b>contre</b> <?php echo $myObj[$i]?></a>
+      <a href="other" class="list-group-item"><?php echo $otherProp[$i]['nom']?> <b>contre</b> <?php echo $myObj[$i]['nom']?></a>
     </div>
 <?php } ?>
   </div>

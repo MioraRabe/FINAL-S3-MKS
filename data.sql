@@ -7,6 +7,7 @@ insert into Categorie values(null, 'Vetements');
 insert into Categorie values(null, 'Livre');
 insert into Categorie values(null, 'Informatique');
 
+
 insert into Objet values(null, 'Tshirt TNF', 'Tshirt blanc avec logo the north face tendance jeune', 1, 15000, 'Vetements/1.png');
 insert into Objet values(null, 'Les Détectives du Yorkshire', 'LA MORT FAIT SON INTÉRESSANTE Le huitième tome de la série best-seller Les Détectives du Yorkshire', 2, 10000, 'Livre/1.png');
 insert into Objet values(null, 'MacBook Pro 13 pouces', 'Avec la nouvelle puce M2, le MacBook Pro 13 pouces repousse ses propres limites. Fidèle à son design compact, il offre jusqu à 20 heures d autonomie', 3, 4000000, 'Informatique/1.png');

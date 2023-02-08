@@ -17,7 +17,6 @@
     <div class="list-group">
       <a href="other" class="list-group-item">Liste des objets des autres utilisateurs</a>
     </div>
-    <h1 class="my-4">Mes objets</h1>
     <div class="list-group">
       <a href="prop" class="list-group-item">Liste des proposition reçue</a>
     </div>

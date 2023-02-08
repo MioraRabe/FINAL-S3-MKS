@@ -22,11 +22,13 @@ class Client extends CI_Controller {
 		$props=$this->Model->listPropEnCours($this->session->userdata('idUser'));
 
 		foreach($props as $prop){
+			$idprop[]=$prop['idProp'];
 			$otherProp[]=$this->Objet->findObjet($prop['idObjet1']);
 			$myObj[]=$this->Objet->findObjet($prop['idObjet2']);
 		}
 		$data['otherProp']=$otherProp;
 		$data['myObj']=$myObj;
+		$data['idprop']=$idprop;
 		$this->load->view('mainpage',$data);
 
 	}
@@ -53,7 +55,13 @@ class Client extends CI_Controller {
 		$this->Model->proposer($this->session->userdata('idUser'),$myObj,$otherId,$otherObj);
 		redirect('other');
 	}
+	public function accept(){
+		$idprop = $this->input->get("idprop");
+		echo $idprop;
+		$this->Model->transact($idProp,1);
+		// $this->Model->changeProprio($idUser,$idObjet);
 
+	}
 
 
 }

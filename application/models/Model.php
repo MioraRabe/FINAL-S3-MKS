@@ -13,6 +13,7 @@
             if(count($row)>0)
             {
                 $valiny = true;
+                $this->session->set_userdata('idUser', $row['idUser']);
                 $this->session->set_userdata('nom', $row['nom']);
                 $this->session->set_userdata('typeUser', $row['typeUser']);
             }
@@ -30,8 +31,13 @@
 
         public function insertUser($nom,$email,$mdp)
         {
-            $sql = "INSERT INTO Users VALUES(NULL,?,?,?,1) ";
-            $this->db->query($sql, array($nom,$email,$mdp));
+            $valiny = true;
+            if(checkInscri($email)){
+                $sql = "INSERT INTO Users VALUES(NULL,?,?,?,1) ";
+                $this->db->query($sql, array($nom,$email,$mdp));
+            }else{
+                $valiny = false;
+            }
         }
 
         public function checkInscri($email){

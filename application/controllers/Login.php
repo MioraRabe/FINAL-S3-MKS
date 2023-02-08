@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function __construct() {
         parent::__construct();
+		$this->load->model('Model');
     }
 	
     public function index()
@@ -17,11 +18,10 @@ class Login extends CI_Controller {
 	
 	public function login()
 	{
-		$mail = $this->input->post("email");
-		$pass = $this->input->post("mdp");
+		$email = $this->input->post("email");
+		$mdp = $this->input->post("mdp");
 
-		$this->load->model('Model');
-		if($this->Model->checkLogin($mail,$pass))
+		if($this->Model->checkLogin($email,$mdp))
 		{
 			if($this->session->userdata('typeUser') == 0){
 				redirect('admin/index');
@@ -32,5 +32,18 @@ class Login extends CI_Controller {
 		}else{
 			redirect('login/index');
 		}
+	}
+	public function insertUser()
+	{
+		$nom = $this->input->post("nom");
+		$email = $this->input->post("email");
+		$mdp = $this->input->post("mdp");
+		if($this->Model->insertUser($nom,$email,$mdp)){
+			$this->Model->checkLogin($mail,$pass);
+			redirect('client/index');
+		}else {
+			redirect('login/inscription');
+		}
+
 	}
 }

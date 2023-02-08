@@ -7,7 +7,7 @@
 </head>
 <body>
     
-<div class="container">
+<div class="container" style="margin-top: 75;">
 
 <div class="row">
 
@@ -24,7 +24,11 @@
 
     <h1 class="my-4">Trier par catégorie</h1>
     <div class="list-group">
-      <a href="#" class="list-group-item">Nombre de personne inscrit : <b> <?php echo $nbUser['nbUser']?></b></a>
+    <?php
+  foreach($categories as $cate){
+?>
+      <a href="triage?cat=<?php echo $cate['nomCat']?>" class="list-group-item"><?php echo $cate['nomCat']?></a>
+<?php }?> 
     </div>
 
   </div>

@@ -7,22 +7,21 @@
 </head>
 <body>
     
-<div class="container">
+<div class="container" style="margin-top: 75px;">
 
 <div class="row">
 
   <div class="col-lg-3">
 
-    <h1 class="my-4">Shop Name</h1>
+    <h1 class="my-4">Mes objets</h1>
     <div class="list-group">
       <a href="other" class="list-group-item">Liste des objets des autres utilisateurs</a>
-      <a href="#" class="list-group-item">Transaction :</a>
     </div>
 
   </div>
   <!-- /.col-lg-3 -->
 
-  <div class="col-lg-9">
+  <div class="col-lg-9" >
 
     <div class="row">
 

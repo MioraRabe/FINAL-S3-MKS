@@ -12,7 +12,18 @@ class Admin extends CI_Controller {
 		$data['contents'] = 'page/admin';
 		$data['titre'] = 'Takalo-Admin';
 		$data['objects'] =$this->Objet->getAllObjets();
-		$data['cate'] =$this->Objet->selectAllCat();
+		$data['categories'] =$this->Objet->selectAllCat();
+		$data['nbUser'] =$this->Root->countUser();
+		$this->load->view('mainpage',$data);
+	}	
+	
+    public function triage()
+	{
+		$cat = $this->input->get("cat");
+		$data['contents'] = 'page/admin';
+		$data['titre'] = 'Takalo-Admin';
+		$data['objects'] =$this->Objet->selectParCat($cat);
+		$data['categories'] =$this->Objet->selectAllCat();
 		$data['nbUser'] =$this->Root->countUser();
 		$this->load->view('mainpage',$data);
 	}	

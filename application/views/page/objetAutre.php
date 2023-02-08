@@ -7,14 +7,14 @@
 </head>
 <body>
     
-<div class="container">
+<div class="container" style="margin-top: 75px; margin-bottom: 75px;">
 
 <div class="row">
 
   <div class="col-lg-3">
-
+  <h1 class="my-4">Liste des objets des autres utilisateurs</h1>
     <div class="list-group">
-      <a href="index" class="list-group-item">My objects</b></a>
+      <a href="index" class="list-group-item">Mes objets</b></a>
     </div>
 
   </div>
@@ -39,7 +39,8 @@
             <p class="card-text"><?php echo $obj['descri']?></p>
           </div>
           <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+            <p><a href="fiche">Fiche</a></p>
           </div>
         </div>
       </div>

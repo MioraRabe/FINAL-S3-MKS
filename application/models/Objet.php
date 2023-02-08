@@ -41,21 +41,17 @@
 
         public function selectAllCat()
         {
-            $sql = "SELECT nom FROM categorie";
+            $sql = "SELECT nomCat FROM categorie";
 
             $query = $this->db->query($sql);
             $result = $query->result_array();
 
             return $result;
         }
-        
-        public function selectAllCat()
-        {
-            $sql = "SELECT * FROM categorie";
-
-            $query = $this->db->query($sql);
-            $result = $query->result_array();
-
+        public function selectParCat($cat){
+            $sql="SELECT objetprop.* from objetprop join categorie on idCat=idCategorie where objetprop.nomCat= ?";
+            $query = $this->db->query($sql , $cat);
+            $result = $query->result_array(); 
             return $result;
         }
 

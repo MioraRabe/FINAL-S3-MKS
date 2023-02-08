@@ -39,8 +39,10 @@ class Login extends CI_Controller {
 		$email = $this->input->post("email");
 		$mdp = $this->input->post("mdp");
 		if($this->Model->insertUser($nom,$email,$mdp)){
-			$this->Model->checkLogin($mail,$pass);
-			redirect('client/index');
+			if($this->Model->checkLogin($email,$mdp))
+			{				
+				redirect('client/index');
+			}
 		}else {
 			redirect('login/inscription');
 		}

@@ -3,6 +3,10 @@
 
     class Model extends CI_Model 
     {
+        public function __construct() {
+            parent::__construct();
+        }
+
         public function checkLogin($email,$mdp)
         {
             $sql = "SELECT * FROM users where email= ? AND mdp= ?";
@@ -29,17 +33,6 @@
             return $row;
         }
 
-        public function insertUser($nom,$email,$mdp)
-        {
-            $valiny = true;
-            if(checkInscri($email)){
-                $sql = "INSERT INTO Users VALUES(NULL,?,?,?,1) ";
-                $this->db->query($sql, array($nom,$email,$mdp));
-            }else{
-                $valiny = false;
-            }
-        }
-
         public function checkInscri($email){
             $sql = "SELECT * FROM users WHERE email= ? ";
             $query = $this->db->query($sql, $email);
@@ -52,6 +45,18 @@
             }
             return $valiny;
         }
+
+        public function insertUser($nom,$email,$mdp)
+        {
+            $valiny = true;
+            if($this->Model->checkInscri($email)){
+                $sql = "INSERT INTO Users VALUES(NULL,?,?,?,1) ";
+                $this->db->query($sql, array($nom,$email,$mdp));
+            }else{
+                $valiny = false;
+            }
+        }
+
 
         public function getPropos($idUser)
         {

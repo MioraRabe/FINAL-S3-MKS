@@ -11,6 +11,14 @@
 
             return $row;
         }
+        public function findNameObjet($idObj)
+        {
+            $sql = "SELECT nom from objetprop WHERE idObjet =".$idObj;
+            $query = $this->db->query($sql);
+            $row = $query->row_array();
+
+            return $row;
+        }
 
         public function getObjetUser($idUser)
         {

@@ -13,16 +13,19 @@
 
   <div class="col-lg-3">
 
-    <h1 class="my-4">Mes objets</h1>
+    <h1 class="my-4">Liste des proposition reçue</h1>
     <div class="list-group">
       <a href="other" class="list-group-item">Liste des objets des autres utilisateurs</a>
     </div>
-    <h1 class="my-4">Mes objets</h1>
+  
+    <h1 class="my-4">Liste proposition reçue </h1>
+    <?php
+    for($i=0;$i<count($otherProp);$i++){
+?>
     <div class="list-group">
-      <a href="prop" class="list-group-item">Liste des proposition reçue</a>
+      <a href="other" class="list-group-item"><?php echo $otherProp[$i]?> <b>contre</b> <?php echo $myObj[$i]?></a>
     </div>
-
-   
+<?php } ?>
   </div>
   <!-- /.col-lg-3 -->
 
@@ -31,7 +34,7 @@
     <div class="row">
 
 <?php
-  foreach($objects as $obj){
+  foreach($otherProp as $obj){
 ?>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">

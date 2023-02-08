@@ -13,26 +13,24 @@ class Client extends CI_Controller {
 		$data['contents'] = 'page/client';
 		$data['titre'] = 'Takalo';
 		$data['objects'] =$this->Objet->getObjetUser($this->session->userdata('idUser'));
-		// $props=$this->Model->listPropEnCours($this->session->userdata('idUser'));
-
-		// foreach($props as $prop){
-		// 	$otherProp[]=$prop['idObjet1'];
-		// }
-		// foreach($props as $prop){
-		// 	$myObj[]=$prop['idObjet2'];
-		// }
-		// $listPropose=$this->Objet->getlistobj($otherProp);
-		// $mine=$this->Objet->getlistobj($myObj);
-		// // $otherProp=$props[0]['idObjet1'];
-		// var_dump($props);
-		// echo "other prop";
-		// var_dump($otherProp);
-		// echo "other prop detail";
-
-		// var_dump($objetsss);
-		// var_dump($mine);
 		$this->load->view('mainpage',$data);
 	}	
+
+	public function prop(){
+		$data['contents'] = 'page/prop_recue';
+		$data['titre'] = 'Proposition reçue';
+		$props=$this->Model->listPropEnCours($this->session->userdata('idUser'));
+
+		foreach($props as $prop){
+			$otherProp[]=$this->Objet->findObjet($prop['idObjet1']);
+			$myObj[]=$this->Objet->findObjet($prop['idObjet2']);
+		}
+		$data['otherProp']=$otherProp;
+		$data['myObj']=$myObj;
+		$this->load->view('mainpage',$data);
+
+	}
+
 	public function other(){
 		$data['contents'] = 'page/objetAutre';
 		$data['titre'] = 'Takalo';

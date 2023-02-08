@@ -5,20 +5,27 @@
     {
         public function findObjet($idObj)
         {
-            $sql = "SELECT o.*,c.nom FROM objet o,categorie c WHERE 
-            o.idCategorie = c.idCat AND idObj = ? ";
+            $sql = "SELECT objetprop WHERE idObj = ?";
             $query = $this->db->query($sql, $idObj);
-            $row = $query->row_array(); 
+            $row = $query->row_array();
 
             return $row;
         }
 
-        public function selectObjet($idUser)
+        public function getObjetUser($idUser)
         {
-            $sql = "SELECT * FROM maxprop WHERE idUser = ? ";
+            $sql = "SELECT * FROM objetprop WHERE idUser = ?";
+            $query = $this->db->query($sql , $idUser);
+            $result = $query->result_array(); 
 
-            $query = $this->db->query($sql, $idUser);
-            $result = $query->result_array();
+            return $result;
+        }
+
+        public function getOtherObjets($idUser)
+        {
+            $sql = "SELECT * FROM objetprop WHERE idUser != ?";
+            $query = $this->db->query($sql , $idUser);
+            $result = $query->result_array(); 
 
             return $result;
         }
@@ -45,8 +52,23 @@
 
         public function insertObjet($nom,$descri,$categ,$valeur,$cover)
         {
-            $sql = "INSERT INTO Obj VALUES(NULL,?,?,?,?,?)";
+            $sql = "INSERT INTO Objet VALUES(NULL,?,?,?,?,?)";
             $this->db->query($sql, array($nom,$descri,$categ,$valeur,$cover));
+        }
+
+        public function search($tap,$categ){
+            if(strcmp($categ,'tout')==0){
+                $sql = "SELECT * FROM objet WHERE descri = ? ";
+            }
+            else{
+                $sql = "SELECT * FROM objetprop WHERE descri = ?
+                AND nomcat = '".$categ."'";
+            }
+
+            $query = $this->db->query($sql, $tap);
+            $result = $query->result_array();
+
+            return $result;
         }
 
     }

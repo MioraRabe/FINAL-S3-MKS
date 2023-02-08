@@ -49,8 +49,8 @@ create table Proposition (
 
 create table Transac (
     idProp INT NOT NULL PRIMARY KEY,
-    dateTransac DATETIME,
-    typeTransac INT NOT,
+    dateTransac DATETIME, 
+    typeTransac INT NOT NULL,
     Foreign Key (idProp) REFERENCES Proposition(idProp)
 );
 -- typetransac 0 refusé

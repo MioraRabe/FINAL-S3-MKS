@@ -8,9 +8,13 @@ class Login extends CI_Controller {
 	
     public function index()
 	{
-		$this->load->view('page/login');
+		$this->load->view('page/index');
+	}
+	public function inscription()
+	{
+		$this->load->view('page/inscription');
 	}	
-
+	
 	public function login()
 	{
 		$mail = $this->input->post("email");

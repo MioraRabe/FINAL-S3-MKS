@@ -58,7 +58,7 @@ class Client extends CI_Controller {
 	public function accept(){
 		$idprop = $this->input->get("idprop");
 		echo $idprop;
-		$this->Model->transact($idProp,1);
+		$this->Model->transact($idprop,1);
 		// $this->Model->changeProprio($idUser,$idObjet);
 
 	}

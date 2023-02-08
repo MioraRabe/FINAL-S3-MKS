@@ -20,8 +20,8 @@
         <form action="<?php echo base_url('login/login'); ?>" method="post">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="Password"></div>
+            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder=" admin@gmail.com"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="admin"></div>
             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
             <a class="forgot" href="<?php echo base_url('login/inscription'); ?>">Inscription</a>
         </form>

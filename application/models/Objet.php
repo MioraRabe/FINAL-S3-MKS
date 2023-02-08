@@ -3,45 +3,73 @@
 
     class Objet extends CI_Model 
     {
-        public function getobject()
+        public function findObjet($idObj)
         {
-            $sql = "SELECT * FROM objet";
-            $query = $this->db->query($sql);
+            $sql = "SELECT objetprop WHERE idObj = ?";
+            $query = $this->db->query($sql, $idObj);
+            $row = $query->row_array();
+
+            return $row;
+        }
+
+        public function getObjetUser($idUser)
+        {
+            $sql = "SELECT * FROM objetprop WHERE idUser = ?";
+            $query = $this->db->query($sql , $idUser);
             $result = $query->result_array(); 
 
             return $result;
         }
 
-        public function findobject($idObj)
+        public function getOtherObjets($idUser)
         {
-            $sql = "SELECT * FROM objet where idObj = ? ";
-            $query = $this->db->query($sql, array($idObj));
-            $row = $query->row_array(); 
+            $sql = "SELECT * FROM objetprop WHERE idUser != ?";
+            $query = $this->db->query($sql , $idUser);
+            $result = $query->result_array(); 
 
-            return $row;
+            return $result;
         }
 
-        public function selectobject($idUser)
+        public function selectAllCat()
         {
-            $sql = "SELECT idObj FROM proprio where idUser = ?
-            AND datePossess in (select max(datepossess) from proprio group by idObjet)";
+            $sql = "SELECT nom FROM categorie";
 
-            $query = $this->db->query($sql, array($idUser));
+            $query = $this->db->query($sql);
             $result = $query->result_array();
 
             return $result;
         }
 
-        public function selectcat($idObj)
+        public function selectCatId($nom)
         {
-            $sql = "SELECT nom FROM categorie where
-            idCat = (select idCat from objet where idObj = ?) ";
+            $sql = "SELECT id FROM categorie WHERE nomCat = ? ";
 
-
-            $query = $this->db->query($sql, array($idObj));
+            $query = $this->db->query($sql, $nom);
             $row = $query->row_array();
 
             return $row;
         }
+
+        public function insertObjet($nom,$descri,$categ,$valeur,$cover)
+        {
+            $sql = "INSERT INTO Objet VALUES(NULL,?,?,?,?,?)";
+            $this->db->query($sql, array($nom,$descri,$categ,$valeur,$cover));
+        }
+
+        public function search($tap,$categ){
+            if(strcmp($categ,'tout')==0){
+                $sql = "SELECT * FROM objet WHERE descri = ? ";
+            }
+            else{
+                $sql = "SELECT * FROM objetprop WHERE descri = ?
+                AND nomcat = '".$categ."'";
+            }
+
+            $query = $this->db->query($sql, $tap);
+            $result = $query->result_array();
+
+            return $result;
+        }
+
     }
 ?>

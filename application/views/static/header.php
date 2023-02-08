@@ -28,7 +28,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#" style="color: rgb(255,255,255);"><h5> <?php echo $this->session->userdata('nom')?></h5></a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Liste Echange</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/deconnexion'); ?>" style="color: rgb(255,255,255);">Deconnexion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('login/deconnexion'); ?>" style="color: rgb(255,255,255);">Deconnexion</a></li>
                 </ul>
             </div>
         </div>

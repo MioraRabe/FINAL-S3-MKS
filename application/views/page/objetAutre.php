@@ -13,18 +13,8 @@
 
   <div class="col-lg-3">
 
-    <h1 class="my-4">Listes de tous les objets</h1>
     <div class="list-group">
-      <a href="#" class="list-group-item">Nombre de personne inscrit : <b> <?php echo $nbUser['nbUser']?></b></a>
-      <a href="#" class="list-group-item">Transaction :</a>
-    </div>
-
-  </div>
-  <div class="col-lg-3">
-
-    <h1 class="my-4">Trier par catégorie</h1>
-    <div class="list-group">
-      <a href="#" class="list-group-item">Nombre de personne inscrit : <b> <?php echo $nbUser['nbUser']?></b></a>
+      <a href="index" class="list-group-item">My objects</b></a>
     </div>
 
   </div>

@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 		}
 
 	}
-	public function deconexion()
+	public function deconnexion()
 	{
 		$this->session->sess_destroy();
 		redirect('login/index');

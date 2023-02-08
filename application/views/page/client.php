@@ -11,15 +11,15 @@
 
 <div class="row">
 
-  <!-- <div class="col-lg-3">
+  <div class="col-lg-3">
 
     <h1 class="my-4">Shop Name</h1>
     <div class="list-group">
-      <a href="#" class="list-group-item">Nombre de personne inscrit : <b> <?php echo $nbUser['nbUser']?></b></a>
+      <a href="other" class="list-group-item">Liste des objets des autres utilisateurs</a>
       <a href="#" class="list-group-item">Transaction :</a>
     </div>
 
-  </div> -->
+  </div>
   <!-- /.col-lg-3 -->
 
   <div class="col-lg-9">
@@ -36,7 +36,6 @@
             <h4 class="card-title">
               <a href="#"><?php echo $obj['nom']?></a>
             </h4>
-            <h5>Propriétaire: <?php echo $obj['userName']?></h5>
             <h5><?php echo $obj['valeur']?></h5>
             <p class="card-text"><?php echo $obj['descri']?></p>
           </div>

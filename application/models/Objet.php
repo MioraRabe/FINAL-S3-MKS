@@ -48,6 +48,16 @@
 
             return $result;
         }
+        
+        public function selectAllCat()
+        {
+            $sql = "SELECT * FROM categorie";
+
+            $query = $this->db->query($sql);
+            $result = $query->result_array();
+
+            return $result;
+        }
 
         public function selectCatId($nom)
         {

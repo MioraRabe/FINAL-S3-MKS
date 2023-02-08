@@ -13,5 +13,12 @@ class Client extends CI_Controller {
 		$data['titre'] = 'Takalo';
 		$data['objects'] =$this->Objet->getObjetUser($this->session->userdata('idUser'));
 		$this->load->view('mainpage',$data);
+	}	
+	public function other(){
+		$data['contents'] = 'page/objetAutre';
+		$data['titre'] = 'Takalo';
+		$data['objects'] =$this->Objet->getOtherObjets($this->session->userdata('idUser'));
+		$this->load->view('mainpage',$data);
 	}
+
 }
